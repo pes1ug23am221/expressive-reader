@@ -10,23 +10,23 @@ The preprocessing pipeline runs entirely on **local LLMs via LangChain and LM St
 
 ```mermaid
 flowchart TD
-    subgraph Local LLM Pipeline (LangChain + LM Studio)
-        PDF["Input Book (PDF / Text)"] --> SC["1. Story Cleaner & Extractor\n(story_cleaner.py)"]
+    subgraph Local_Pipeline ["Local LLM Pipeline (LangChain + LM Studio)"]
+        PDF["Input Book (PDF / Text)"] --> SC["1. Story Cleaner & Extractor<br/>(story_cleaner.py)"]
         SC -->|generates| CS["cleaned_story.txt"]
         
-        CS --> CP["2. Character Voice Profiler\n(character_profiler.py)"]
+        CS --> CP["2. Character Voice Profiler<br/>(character_profiler.py)"]
         CP -->|generates| CJ["characters.json"]
         
-        CS --> DT["3. Dialogue & Narration Tagger\n(dialogue_tagger.py)"]
+        CS --> DT["3. Dialogue & Narration Tagger<br/>(dialogue_tagger.py)"]
         CJ --> DT
-        DT -->|generates| DS["dialogue_segments_full.json\n& dialogue_script.txt"]
+        DT -->|generates| DS["dialogue_segments_full.json<br/>& dialogue_script.txt"]
     end
 
-    subgraph Audio Generation (ttts.ipynb)
-        CJ --> TTS1["Step 1: Voice Design\n(Qwen3-TTS-VoiceDesign)"]
-        TTS1 -->|base ref audio| TTS2["Step 2: Voice Cloning Prompts\n(Qwen3-TTS-Base)"]
-        DS --> TTS3["Step 3: Expressive Segment Gen\n(VoiceDesign with speaking_description)"]
-        TTS2 --> TTS4["Step 4: Voice Conversion\n(Consistent Character Identity)"]
+    subgraph TTS_Pipeline ["Audio Generation (ttts.ipynb)"]
+        CJ --> TTS1["Step 1: Voice Design<br/>(Qwen3-TTS-VoiceDesign)"]
+        TTS1 -->|base ref audio| TTS2["Step 2: Voice Cloning Prompts<br/>(Qwen3-TTS-Base)"]
+        DS --> TTS3["Step 3: Expressive Segment Gen<br/>(VoiceDesign with speaking_description)"]
+        TTS2 --> TTS4["Step 4: Voice Conversion<br/>(Consistent Character Identity)"]
         TTS3 --> TTS4
         TTS4 --> FinalAudio["Final Mastered Audiobook Audio (.wav)"]
     end
