@@ -1,0 +1,13 @@
+# LLM & Pipeline Dependencies
+langchain>=1.4.0
+langchain-openai>=1.6.0
+langchain-core>=1.6.0
+pypdf>=6.0.0
+requests>=2.30.0
+
+# TTS Generation Dependencies (for ttts.ipynb)
+# torch
+# torchaudio
+# soundfile
+# huggingface_hub
+# qwen-tts

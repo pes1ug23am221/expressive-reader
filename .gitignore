@@ -1,0 +1,66 @@
+# Pipeline Output Artifacts (Do not track outputs)
+cleaned_story.txt
+characters.json
+dialogue_segments_full.json
+dialogue_script.txt
+test_characters.json
+test_story.txt
+
+# Audio and Model Outputs
+outputs/
+voices/
+expressive_temp/
+*.wav
+*.mp3
+*.ogg
+*.flac
+*.pkl
+*.pt
+*.bin
+*.safetensors
+*.onnx
+
+# Input Books / Documents
+*.pdf
+*.epub
+*.mobi
+
+# Python / Environment
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+share/python-wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+MANIFEST
+
+# Virtual Environments
+.venv/
+venv/
+env/
+ENV/
+env.bak/
+venv.bak/
+
+# Jupyter / VS Code / OS
+.ipynb_checkpoints/
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+*.bak
